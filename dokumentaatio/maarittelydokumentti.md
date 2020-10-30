@@ -17,7 +17,7 @@ Fourier-muunnoksissa käytetään kompleksilukuja, joille voimme toteuttaa oman 
 ## Testaus
 Toteutuksessa syntyvien luokkien toiminnalle kirjoitetaan yksikkötestit. Yksikkötestikokonaisuus pyritään pitämään mahdollisimman nopeasti ajettavana ja luokkien riippuvuudet korvataan testeissä valetoteutuksilla. Testikattavuuden seuraamiseen käytetään ohjelmallisia ratkaisuja.
 
-Vahvasti algoritmisille osille kirjoitetaan suorituskykytestit jotta voidaan seurata mahdollisia muutoksia algoritmien tehokkuudessa.
+Vahvasti algoritmisille osille kirjoitetaan suorituskykytestit. Näin saadaan käsitys toteutuksen suorityskyvystä, sekä voidaan seurata mahdollisia muutoksia algoritmien tehokkuudessa tehtyjen muutosten myötä.
 
 Pyritään tekemään myös pääasialliselle käyttötarkoitukselle yksinkertainen hyväksyntätesti, joka antaa käyttäjälle määritellyllä testitallenteella oikean perustaajuuden.
 
