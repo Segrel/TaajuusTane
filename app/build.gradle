@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'jacoco'
 }
 
 repositories {
@@ -27,4 +28,12 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'TaajuusTane.App'
+}
+
+jacoco {
+    toolVersion = "0.8.6"
+}
+
+test {
+    finalizedBy jacocoTestReport
 }
