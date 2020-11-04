@@ -36,4 +36,5 @@ jacoco {
 
 test {
     finalizedBy jacocoTestReport
+    finalizedBy javadoc
 }

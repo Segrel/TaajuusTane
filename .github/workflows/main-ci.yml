@@ -31,3 +31,7 @@ jobs:
       with:
         name: Reports
         path: app/build/reports
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Javadoc
+        path: app/build/docs/javadoc
