@@ -1,13 +1,14 @@
 package TaajuusTane;
 
-/** Luokka kompleksiluvuille */
+/** Luokka kompleksiluvuille. */
 public class Kompleksi {
-  /** Reaaliosa */
+  /** Reaaliosa. */
   public double a;
-  /** Imaginaariosa */
+  /** Imaginaariosa. */
   public double b;
 
-  /** Luo kompleksiluku a + bi
+  /** Luo kompleksiluku a + bi.
+  *
   * @param a Reaaliosa
   * @param b Imaginaariosa
   */
@@ -16,7 +17,8 @@ public class Kompleksi {
     this.b = b;
   }
 
-  /** Laske kahden kompleksiluvun summa
+  /** Laske kahden kompleksiluvun summa.
+  *
   * @param z Ensimmäinen termi
   * @param w Toinen termi
   * @return Summa
@@ -25,7 +27,8 @@ public class Kompleksi {
     return new Kompleksi(z.a + w.a, z.b + w.b);
   }
 
-  /** Laske kahden kompleksiluvun erotus
+  /** Laske kahden kompleksiluvun erotus.
+  *
   * @param z Ensimmäinen termi
   * @param w Toinen termi
   * @return Erotus
@@ -34,7 +37,8 @@ public class Kompleksi {
     return new Kompleksi(z.a - w.a, z.b - w.b);
   }
 
-  /** Laske kahden kompleksiluvun tulo
+  /** Laske kahden kompleksiluvun tulo.
+  *
   * @param z Ensimmäinen termi
   * @param w Toinen termi
   * @return Tulo
@@ -43,7 +47,8 @@ public class Kompleksi {
     return new Kompleksi(z.a * w.a - z.b * w.b, z.a * w.b + z.b * w.a);
   }
 
-  /** Laske kompleksiluku e^(ix)
+  /** Laske kompleksiluku e^(ix).
+  *
   * @param x Vaihekulma
   * @return Eksponentti
   */
@@ -51,7 +56,8 @@ public class Kompleksi {
     return new Kompleksi(Math.cos(x), Math.sin(x));
   }
 
-  /** Laske kompleksiluvun moduli eli itseisarvo
+  /** Laske kompleksiluvun moduli eli itseisarvo.
+  *
   * @param z Kompleksiluku
   * @return Moduli
   */
