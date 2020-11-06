@@ -3,7 +3,7 @@
 Projekti toteutetaan osana Helsingin yliopiston Tietojenkäsittelytieteen kandidaatin tutkinnon kurssia. Toteutus tehdään Java-kielellä, ensisijaisesti suomea kirjoittaen. Projektin eri rajapinnat dokumentoidaan ja kehityksestä pidetään viikkokohtaista päiväkirjaa.
 
 ## Tavoite
-TaajuusTane on lyhyitä, yksinkertaisia äänipätkiä analysoiva sovellus. Se tutkii algoritmisesti käyttäjän antaman WAV-muotoisen (pituus enintään 5s, näytteiden bittimäärä 16) äänitallenteen ja esittää käyttäjälle sen perustaajuuden, ts. magnitudiltaan voimakkaimman aallonpituuden. Tavoitteena on myös saada ohjelmallisesti poistettua muu kuin perustaajuus tallenteesta. Yksinkertaisuuden vuoksi rajoitutaan tarkastelemaan tallenteita, joissa on siniaalto(ja), kohinaa tai näiden jokin yhdistelmä.
+TaajuusTane on lyhyitä, yksinkertaisia äänipätkiä analysoiva sovellus. Se tutkii algoritmisesti käyttäjän antaman WAV-muotoisen (mono, pituus enintään 5s, näytteiden bittimäärä 16) äänitallenteen ja esittää käyttäjälle sen perustaajuuden, ts. magnitudiltaan voimakkaimman aallonpituuden. Tavoitteena on myös saada ohjelmallisesti poistettua muu kuin perustaajuus tallenteesta. Yksinkertaisuuden vuoksi rajoitutaan tarkastelemaan tallenteita, joissa on siniaalto(ja), kohinaa tai näiden jokin yhdistelmä.
 
 ## Toteutus
 Käyttäjän määrittämä WAV-tiedosto voidaan lukea yksinkertaiseksi tavutaulukoksi, missä jokainen alkio on ääninäyte. Yksinkertaisimmillaan tämä voidaan tehdä siten, että suuremmalla indeksillä oleva ääninäyte on aina ajallisesti myöhemmin otettu. Näytteet ovat käytännössä 16-bittisiä lukuja.
