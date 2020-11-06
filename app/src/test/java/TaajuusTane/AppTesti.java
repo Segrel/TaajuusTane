@@ -14,17 +14,19 @@ public class AppTesti {
     Kompleksi[] data = new Kompleksi[5];
     MockedStatic<Tallenne> t = mockStatic(Tallenne.class);
     t.when(() -> Tallenne.lue(any(File.class))).thenReturn(data);
-    App app = new App();
     String[] args = new String[1];
     args[0] = "/tiedostopolku";
+
+    App app = new App();
     app.main(args);
     t.verify(() -> Tallenne.lue(any(File.class)));
   }
 
   @Test(expected = Exception.class)
   public void mainHeittaaIlmanArgumentteja() throws Exception {
-    App app = new App();
     String[] args = new String[0];
+
+    App app = new App();
     app.main(args);
   }
 }
