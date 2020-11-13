@@ -7,6 +7,7 @@ Projektin ytimessä on ymmärtää paremmin signaaliprosessointia Fourier-muunno
 - [Määrittelydokumentti](dokumentaatio/maarittelydokumentti.md)
 - [Viikkoraportti 1](dokumentaatio/viikkoraportti-1.md)
 - [Viikkoraportti 2](dokumentaatio/viikkoraportti-2.md)
+- [Viikkoraportti 3](dokumentaatio/viikkoraportti-3.md)
 
 ## Artefaktit
 Versionhallinnan `main`-haarasta tehdään [automaattisesti ajo](https://github.com/Segrel/TaajuusTane/actions), jossa:
@@ -26,6 +27,9 @@ Ohjelma lukee annetun Wav(RIFF)-muotoisen, yksikanavaisen signed 16bit PCM-muoto
 java -cp app/build/libs/app.jar TaajuusTane.App tallenne.wav
 ```
 
+Analyysissä saatetaan jättää huomiotta tallenteen lopusta osa ääninäytteistä.
+
 ## Linkkejä
-- [YouTube: But what is the Fourier Transform? A visual introduction](https://www.youtube.com/watch?v=spUNpyF58BY), englanniksi, 3Blue1Brown 2018
-- [Wikipedia: https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm](https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm), englanniksi
+- [3Blue1Brown: But what is the Fourier Transform? A visual introduction](https://www.youtube.com/watch?v=spUNpyF58BY), 2018, englanniksi
+- [Wikipedia: Cooley–Tukey_FFT_algorithm](https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm), englanniksi
+- [James W. Cooley ja John W. Tukey: An algorithm for the machine calculation of complex Fourier series](https://doi.org/10.2307%2F2003354), 1965, englanniksi
