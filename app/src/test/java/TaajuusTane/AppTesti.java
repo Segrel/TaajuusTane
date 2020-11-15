@@ -28,12 +28,12 @@ public class AppTesti {
     try (MockedStatic<Tallenne> t = mockStatic(Tallenne.class)) {
       t.when(() -> Tallenne.lue(any(File.class))).thenReturn(tallenneData);
       try (MockedStatic<Fourier> f = mockStatic(Fourier.class)) {
-        t.when(() -> Fourier.muunnos(tallenneData)).thenReturn(muunnosData);
+        f.when(() -> Fourier.muunnos(tallenneData)).thenReturn(muunnosData);
 
         App app = new App();
         app.main(args);
         t.verify(() -> Tallenne.lue(any(File.class)));
-        t.verify(() -> Fourier.muunnos(tallenneData));
+        f.verify(() -> Fourier.muunnos(tallenneData));
       }
     }
   }
