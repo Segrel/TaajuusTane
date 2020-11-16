@@ -26,13 +26,13 @@ public class AppTesti {
     String[] args = new String[1];
     args[0] = "/tiedostopolku";
     try (MockedStatic<Tallenne> t = mockStatic(Tallenne.class)) {
-      t.when(() -> Tallenne.lue(any(File.class))).thenReturn(tallenneData);
+      t.when(() -> Tallenne.lue(args[0])).thenReturn(tallenneData);
       try (MockedStatic<Fourier> f = mockStatic(Fourier.class)) {
         f.when(() -> Fourier.muunnos(tallenneData)).thenReturn(muunnosData);
 
         App app = new App();
         app.main(args);
-        t.verify(() -> Tallenne.lue(any(File.class)));
+        t.verify(() -> Tallenne.lue(args[0]));
         f.verify(() -> Fourier.muunnos(tallenneData));
       }
     }

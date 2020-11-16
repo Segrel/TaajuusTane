@@ -13,7 +13,7 @@ public class App {
     if (args.length == 0) {
       throw new Exception("Anna komentoriviargumenttina polku tallenteeseen.");
     }
-    Kompleksi[] signaali = Tallenne.lue(new File(args[0]));
+    Kompleksi[] signaali = Tallenne.lue(args[0]);
     System.out.println("Luettiin audiotiedostosta " + Integer.toString(signaali.length) + " näytettä.");
     Kompleksi[] muunnos = Fourier.muunnos(signaali);
     double suurin = 0.0;

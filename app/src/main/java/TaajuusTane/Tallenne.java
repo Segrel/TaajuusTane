@@ -1,6 +1,7 @@
 package TaajuusTane;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -13,13 +14,16 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Tallenne {
   /** Lue Tallenne-tiedosto.
   *
-  * @param tiedosto Viite luettavaan tiedostoon
+  * @param tiedostopolku Tiedostopolku luettavaan tiedostoon
   * @return Taulukko ääninäytteitä
   * @throws Exception Tiedoston käsittelyssä tapahtui virhe
+  * @throws FileNotFoundException Annettua tiedostoa ei ole olemassa
   * @throws IOException Tiedoston luvussa tapahtui virhe
   * @throws UnsupportedAudioFileException Tallenteen audioformaatti ei ole tuettu
   */
-  public static Kompleksi[] lue(File tiedosto) throws Exception, IOException, UnsupportedAudioFileException {
+  public static Kompleksi[] lue(String tiedostopolku)
+      throws Exception, FileNotFoundException, IOException, UnsupportedAudioFileException {
+    File tiedosto = new File(tiedostopolku);
     AudioInputStream audiovuo = AudioSystem.getAudioInputStream(tiedosto);
     AudioFormat metadata = audiovuo.getFormat();
     if (!metadata.getEncoding().equals(AudioFormat.Encoding.PCM_SIGNED)) {
