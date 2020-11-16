@@ -3,6 +3,8 @@ Yksinkertaista taajuusanalyysia, Tiralabra II/2020.
 
 Projektin ytimessä on ymmärtää paremmin signaaliprosessointia Fourier-muunnosten avulla, toteuttaen samalla yleisesti käytetty [radix-2 DIT](https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm#The_radix-2_DIT_case) versio Cooley-Tukey FFT-algoritmista. Se on käyttöömme riittävän nopea, yleisesti tunnettu ja sen [pseudokoodi](https://en.wikipedia.org/wiki/Cooley–Tukey_FFT_algorithm#Pseudocode) sekä optimointi-ideoita on helposti saatavilla.
 
+Sovellus analysoi lyhyitä äänitallenteita ja palauttaa signaalin perustaajuuden, eli dominantin aallonpituuden hertseinä. Tallenteiden tulee olla 16bit mono WAV-tiedosto näytteenottotaajuudella 44100Hz.
+
 ## Dokumentaatio
 - [Määrittelydokumentti](dokumentaatio/maarittelydokumentti.md)
 - [Viikkoraportti 1](dokumentaatio/viikkoraportti-1.md)
@@ -24,7 +26,7 @@ Ohjelman JAR-tiedosto löytyy `gradle build` komennon suorittamisen jälkeen kan
 
 Ohjelma lukee annetun Wav(RIFF)-muotoisen, yksikanavaisen signed 16bit PCM-muotoisen tallenteen. Komento voisi näyttää siis esimerkiksi seuraavalta:
 ```
-java -cp app/build/libs/app.jar TaajuusTane.App tallenne.wav
+java -cp app/build/libs/app.jar TaajuusTane.App app/src/test/resources/440hz.wav
 ```
 
 Analyysissä saatetaan jättää huomiotta tallenteen lopusta osa ääninäytteistä.
