@@ -14,14 +14,14 @@ public class FourierTesti {
       };
 
     Kompleksi[] muunnos = Fourier.muunnos(signaali);
-    assertEquals(muunnos[0].a,  1.0, 0.001);
-    assertEquals(muunnos[0].b,  0.0, 0.001);
-    assertEquals(muunnos[1].a,  0.0, 0.001);
-    assertEquals(muunnos[1].b, -1.0, 0.001);
-    assertEquals(muunnos[2].a, -1.0, 0.001);
-    assertEquals(muunnos[2].b,  0.0, 0.001);
-    assertEquals(muunnos[3].a,  0.0, 0.001);
-    assertEquals(muunnos[3].b,  1.0, 0.001);
+    assertEquals(1.0, muunnos[0].a, 0.001);
+    assertEquals(0.0, muunnos[0].b, 0.001);
+    assertEquals(0.0, muunnos[1].a, 0.001);
+    assertEquals(-1.0, muunnos[1].b, 0.001);
+    assertEquals(-1.0, muunnos[2].a, 0.001);
+    assertEquals(0.0, muunnos[2].b, 0.001);
+    assertEquals(0.0, muunnos[3].a, 0.001);
+    assertEquals(1.0, muunnos[3].b, 0.001);
   }
 
   @Test public void leikkaaPituudenOikein() {
@@ -35,14 +35,14 @@ public class FourierTesti {
       };
 
     Kompleksi[] muunnos = Fourier.muunnos(signaali);
-    assertEquals(muunnos[0].a,  1.0, 0.001);
-    assertEquals(muunnos[0].b,  0.0, 0.001);
-    assertEquals(muunnos[1].a,  0.0, 0.001);
-    assertEquals(muunnos[1].b, -1.0, 0.001);
-    assertEquals(muunnos[2].a, -1.0, 0.001);
-    assertEquals(muunnos[2].b,  0.0, 0.001);
-    assertEquals(muunnos[3].a,  0.0, 0.001);
-    assertEquals(muunnos[3].b,  1.0, 0.001);
+    assertEquals(1.0, muunnos[0].a, 0.001);
+    assertEquals(0.0, muunnos[0].b,  0.001);
+    assertEquals(0.0, muunnos[1].a,  0.001);
+    assertEquals(-1.0, muunnos[1].b, 0.001);
+    assertEquals(-1.0, muunnos[2].a, 0.001);
+    assertEquals(0.0, muunnos[2].b,  0.001);
+    assertEquals(0.0, muunnos[3].a,  0.001);
+    assertEquals(1.0, muunnos[3].b,  0.001);
   }
 
   @Test(expected = IllegalArgumentException.class)

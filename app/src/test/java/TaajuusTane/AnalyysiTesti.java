@@ -1,7 +1,6 @@
 package TaajuusTane;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mockStatic;
 
 import org.junit.Test;
@@ -46,7 +45,7 @@ public class AnalyysiTesti {
       Analyysi a = new Analyysi(testiSignaali, 44100.0);
       int perustaajuus = a.perustaajuus();
       t.verify(() -> Fourier.muunnos(testiSignaali));
-      assertEquals(perustaajuus, 11025);
+      assertEquals(11025, perustaajuus);
     }
   }
 }
