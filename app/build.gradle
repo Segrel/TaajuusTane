@@ -42,6 +42,17 @@ checkstyle {
 }
 
 test {
+    useJUnit {
+        excludeCategories 'TaajuusTane.SuorituskykyTesti'
+    }
     finalizedBy jacocoTestReport
     finalizedBy javadoc
+}
+
+task perftest(type: Test) {
+    outputs.upToDateWhen { false }
+    testLogging.showStandardStreams = true
+    useJUnit {
+        includeCategories 'TaajuusTane.SuorituskykyTesti'
+    }
 }
