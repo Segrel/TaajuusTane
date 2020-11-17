@@ -16,7 +16,7 @@ public class App {
     Analyysi analyysi = new Analyysi(signaali, 44100.0);
     System.out.println("Perustaajuus on " + Integer.toString(analyysi.perustaajuus()) + "Hz.");
     if (analyysi.sivuutettuja() > 0) {
-      System.out.println("Viimeiset " + Integer.toString(analyysi.sivuutettuja()) + " näytettä jätettiin analysoimatta.");
+      System.out.println(Integer.toString(analyysi.sivuutettuja()) + " näytettä jätettiin analysoimatta.");
     }
   }
 }
