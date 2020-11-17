@@ -1,7 +1,5 @@
 package TaajuusTane;
 
-import java.io.File;
-
 /** Komentorivikäyttöliittymä TaajuusTanelle. */
 public class App {
   /** Suorita tallenteen analyysi.
