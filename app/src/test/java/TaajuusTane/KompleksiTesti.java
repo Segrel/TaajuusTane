@@ -7,8 +7,8 @@ import org.junit.Test;
 public class KompleksiTesti {
   @Test public void konstruktoriToimii() {
     Kompleksi k = new Kompleksi(1.0, 0.0);
-    assertEquals(1.0, k.a, 0.001);
-    assertEquals(0.0, k.b, 0.001);
+    assertEquals(1.0, k.reaali(), 0.001);
+    assertEquals(0.0, k.imaginaari(), 0.001);
   }
 
   // (a,b)+(c,d) = (a+c,b+d)
@@ -17,8 +17,8 @@ public class KompleksiTesti {
     Kompleksi k2 = new Kompleksi(2.0, 1.6);
 
     Kompleksi summa = Kompleksi.summa(k1, k2);
-    assertEquals(5.0, summa.a, 0.001);
-    assertEquals(3.7, summa.b, 0.001);
+    assertEquals(5.0, summa.reaali(), 0.001);
+    assertEquals(3.7, summa.imaginaari(), 0.001);
   }
 
   // (a,b)-(c,d) = (a-c,b-d)
@@ -27,8 +27,8 @@ public class KompleksiTesti {
     Kompleksi k2 = new Kompleksi(2.0, 1.6);
 
     Kompleksi erotus = Kompleksi.erotus(k1, k2);
-    assertEquals(1.0, erotus.a, 0.001);
-    assertEquals(0.5, erotus.b, 0.001);
+    assertEquals(1.0, erotus.reaali(), 0.001);
+    assertEquals(0.5, erotus.imaginaari(), 0.001);
   }
 
   // (a,b)(c,d) = (ac−bd,ad+bc)
@@ -37,15 +37,15 @@ public class KompleksiTesti {
     Kompleksi k2 = new Kompleksi(1.0, 7.0);
 
     Kompleksi tulo = Kompleksi.tulo(k1, k2);
-    assertEquals(-11.0, tulo.a, 0.001);
-    assertEquals(23.0, tulo.b, 0.001);
+    assertEquals(-11.0, tulo.reaali(), 0.001);
+    assertEquals(23.0, tulo.imaginaari(), 0.001);
   }
 
   // e^(ix) = (cos(x), sin(x))
   @Test public void eksponenttiToimii() {
     Kompleksi k = Kompleksi.eksponentti(Math.PI);
-    assertEquals(-1.0, k.a, 0.001);
-    assertEquals(0.0, k.b, 0.001);
+    assertEquals(-1.0, k.reaali(), 0.001);
+    assertEquals(0.0, k.imaginaari(), 0.001);
   }
 
   // |k| = sqrt(aa+bb)

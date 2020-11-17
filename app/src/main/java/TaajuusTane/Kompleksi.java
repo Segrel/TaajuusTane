@@ -3,18 +3,18 @@ package TaajuusTane;
 /** Luokka kompleksiluvuille. */
 public class Kompleksi {
   /** Reaaliosa. */
-  public double a;
+  private double a;
   /** Imaginaariosa. */
-  public double b;
+  private double b;
 
   /** Luo kompleksiluku a + bi.
   *
-  * @param a Reaaliosa
-  * @param b Imaginaariosa
+  * @param reaali Reaaliosa
+  * @param imaginaari Imaginaariosa
   */
-  public Kompleksi(double a, double b) {
-    this.a = a;
-    this.b = b;
+  public Kompleksi(double reaali, double imaginaari) {
+    this.a = reaali;
+    this.b = imaginaari;
   }
 
   /** Laske kahden kompleksiluvun summa.
@@ -63,5 +63,21 @@ public class Kompleksi {
   */
   public static double moduli(Kompleksi z) {
     return Math.sqrt(z.a * z.a + z.b * z.b);
+  }
+
+  /** Palauta kompleksiluvun reaaliosa.
+  *
+  * @return Reaaliosa
+  */
+  public double reaali() {
+    return a;
+  }
+
+  /** Palauta kompleksiluvun imaginaariosa.
+  *
+  * @return Imaginaariosa
+  */
+  public double imaginaari() {
+    return b;
   }
 }
