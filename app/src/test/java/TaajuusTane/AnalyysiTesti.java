@@ -48,4 +48,15 @@ public class AnalyysiTesti {
       assertEquals(11025, perustaajuus);
     }
   }
+
+  @Test public void sivuutettujaToimii() {
+    Kompleksi[] testiSignaali = {
+      new Kompleksi(1.0, 0.0),
+      new Kompleksi(1.0, 0.0),
+      new Kompleksi(1.0, 0.0)
+      };
+    Analyysi a = new Analyysi(testiSignaali, 2.0);
+
+    assertEquals(1, a.sivuutettuja());
+  }
 }

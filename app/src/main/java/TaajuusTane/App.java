@@ -15,5 +15,6 @@ public class App {
     System.out.println("Luettiin audiotiedostosta " + Integer.toString(signaali.length) + " näytettä.");
     Analyysi analyysi = new Analyysi(signaali, 44100.0);
     System.out.println("Analyysi: perustaajuus on " + Integer.toString(analyysi.perustaajuus()) + "Hz.");
+    System.out.println("Jätettiin viimeiset " + Integer.toString(analyysi.sivuutettuja()) + " näytettä huomioimatta.");
   }
 }
