@@ -16,30 +16,29 @@ public class Tallenne {
   *
   * @param tiedostopolku Tiedostopolku luettavaan tiedostoon
   * @return Taulukko ääninäytteitä
-  * @throws Exception Tiedoston käsittelyssä tapahtui virhe
   * @throws FileNotFoundException Annettua tiedostoa ei ole olemassa
   * @throws IOException Tiedoston luvussa tapahtui virhe
   * @throws UnsupportedAudioFileException Tallenteen audioformaatti ei ole tuettu
   */
   public static Kompleksi[] lue(String tiedostopolku)
-      throws Exception, FileNotFoundException, IOException, UnsupportedAudioFileException {
+      throws FileNotFoundException, IOException, UnsupportedAudioFileException {
     File tiedosto = new File(tiedostopolku);
     AudioInputStream audiovuo = AudioSystem.getAudioInputStream(tiedosto);
     AudioFormat metadata = audiovuo.getFormat();
     if (!metadata.getEncoding().equals(AudioFormat.Encoding.PCM_SIGNED)) {
-      throw new Exception("Tallenteen tulee olla etumerkillisessä PCM-muodossa.");
+      throw new UnsupportedAudioFileException("Tallenteen tulee olla etumerkillisessä 16 bittisessä PCM-muodossa.");
     }
     if (metadata.isBigEndian()) {
-      throw new Exception("Tallenteen tulee olla little-endian tavujärjestyksessä.");
+      throw new UnsupportedAudioFileException("Tallenteen tulee olla little-endian tavujärjestyksessä.");
     }
     if (metadata.getFrameRate() != 44100) {
-      throw new Exception("Tallenteen näytteenottotaajuuden tulee olla 44.1 kHz.");
+      throw new UnsupportedAudioFileException("Tallenteen näytteenottotaajuuden tulee olla 44.1 kHz.");
     }
-    if (metadata.getFrameSize() != 2) {
-      throw new Exception("Tallenteen näytteiden bittimäärän tulee olla 16.");
+    if (metadata.getSampleSizeInBits() != 16) {
+      throw new UnsupportedAudioFileException("Tallenteen näytteiden bittimäärän tulee olla 16.");
     }
     if (metadata.getChannels() != 1) {
-      throw new Exception("Tallenteen tulee olla yksikanavainen.");
+      throw new UnsupportedAudioFileException("Tallenteen tulee olla yksikanavainen.");
     }
     int pituus = (int) audiovuo.getFrameLength();
     Kompleksi[] data = new Kompleksi[pituus];
@@ -47,7 +46,7 @@ public class Tallenne {
     puskuri.order(ByteOrder.LITTLE_ENDIAN);
     for (int i = 0; i < pituus; i += 1) {
       if (audiovuo.read(puskuri.array()) == -1) {
-        throw new Exception(String.format("Oletettiin %d näytettä, luettiin vain %d.", pituus, (i + 1)));
+        throw new IOException(String.format("Oletettiin %d näytettä, luettiin vain %d.", pituus, (i + 1)));
       }
       data[i] = new Kompleksi(puskuri.getShort(0), 0.0);
     }

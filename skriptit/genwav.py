@@ -1,18 +1,22 @@
-import wave, struct, math, random
+import wave, struct, math
 
-naytteenOttoTaajuus = 44100.0 # hertsiä
-kesto = 0.75 # sekuntia
-taajuus = 440.0 # HZ
+def luoWavTiedosto(nimi, kehyksia, tavumaara, kanavia, naytteenOttoTaajuus, taajuusFunktio):
+  clip = wave.open(nimi + '.wav', 'w')
 
-clip = wave.open('440hz.wav', 'w')
+  clip.setnchannels(kanavia)
+  clip.setsampwidth(tavumaara)
+  clip.setframerate(naytteenOttoTaajuus)
 
-clip.setnchannels(1)
-clip.setsampwidth(2)
-clip.setframerate(naytteenOttoTaajuus)
+  for i in range(int(kehyksia)):
+    arvo = taajuusFunktio(i)
+    data = struct.pack('<h', int(arvo * 32767.0))
+    clip.writeframes(data)
 
-for i in range(int(naytteenOttoTaajuus * kesto)):
-   arvo = math.sin(2 * math.pi * taajuus * i / naytteenOttoTaajuus)
-   data = struct.pack('<h', int(arvo * 32767.0))
-   clip.writeframes(data)
+  clip.close()
 
-clip.close()
+luoWavTiedosto("440hz", 0.75 * 44100.0, 2, 1, 44100.0, lambda i: math.sin(2 * math.pi * 440.0 * i / 44100.0))
+luoWavTiedosto("kymmenykset", 10, 2, 1, 44100.0, lambda i: i / 10.0)
+luoWavTiedosto("sr48000-kymmenykset", 10, 2, 1, 48000.0, lambda i: i / 10.0)
+luoWavTiedosto("8bit-kymmenykset", 10, 1, 1, 44100.0, lambda i: i / 10.0)
+luoWavTiedosto("stereo-kymmenykset", 10, 2, 2, 44100.0, lambda i: i / 10.0)
+luoWavTiedosto("32bit-kymmenykset", 10, 4, 1, 44100.0, lambda i: i / 10.0)
