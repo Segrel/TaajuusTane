@@ -20,6 +20,20 @@ syötteen pituus: mediaanikesto (ms)
 2^20: 702.447515ms
 ```
 
+Ensimmäisessä Github Actions -ajossa taas saatiin seuraavat tulokset:
+```
+syötteen pituus: mediaanikesto (ms)
+2^12: 8.488297
+2^13: 17.737894
+2^14: 13.527396
+2^15: 24.000391
+2^16: 51.170584
+2^17: 111.452964
+2^18: 239.897626
+2^19: 524.853456
+2^20: 1299.467923
+```
+
 Testausdokumentti edistyy, toteutusdokumentin tekeminen jätetään seuraavalle viikolle. Jätetään myös suorituskykytestien tuloksien pohdinta ja jatkotoimet seuraavalle viikolle.
 
 #### Tuntikirjanpito
