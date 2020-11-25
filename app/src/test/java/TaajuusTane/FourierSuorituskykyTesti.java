@@ -1,5 +1,6 @@
 package TaajuusTane;
 
+import java.io.FileWriter;
 import java.util.Arrays;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -23,6 +24,7 @@ public class FourierSuorituskykyTesti {
     long[] otos = new long[otoskoko];
     Kompleksi[] testiSignaali;
     System.out.println("syötteen pituus: mediaanikesto (ms)");
+    double[] tulokset = new double[pisinPituus - lyhinPituus + 1];
     for (int i = lyhinPituus; i <= pisinPituus; i += 1) {
       testiSignaali = generoiSignaali((int) Math.pow(2, i));
       Fourier.muunnos(testiSignaali);
@@ -33,7 +35,19 @@ public class FourierSuorituskykyTesti {
         otos[j] = t;
       }
       Arrays.sort(otos);
+      tulokset[i - lyhinPituus] = (double) otos[otos.length / 2] / 1000000.0;
       System.out.println("2^" + Integer.toString(i) + ": " + ((double) otos[otos.length / 2] / 1000000.0));
+    }
+    try {
+      FileWriter tiedostoKirjoitin = new FileWriter("build/reports/tests/perftest/perftest.csv");
+      tiedostoKirjoitin.append("pituus,mediaanikesto\n");
+      for (int i = 0; i <= (pisinPituus - lyhinPituus); i += 1) {
+        tiedostoKirjoitin.append(Integer.toString((int) Math.pow(2, i + lyhinPituus)) + "," + tulokset[i] + "\n");
+      }
+      tiedostoKirjoitin.flush();
+      tiedostoKirjoitin.close();
+    } catch(Exception e) {
+      System.out.println("Tuloksien kirjoittaminen tiedostoon ei onnistunut: " + e.toString());
     }
   }
 }

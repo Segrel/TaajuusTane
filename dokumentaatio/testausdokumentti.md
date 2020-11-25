@@ -23,7 +23,11 @@ Suorituskykytestit voi suorittaa seuraavalla komennolla:
 ```
 ./gradlew perftest
 ```
-Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/perftest/`. Testien tulokset löytyvät raportista navigoimalla TaajuusTane > FourierSuorituskykyTesti näkymään ja klikkaamalla "Standard output".
+Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/perftest/`. Testien tulokset löytyvät HTML-raportista navigoimalla TaajuusTane > FourierSuorituskykyTesti näkymään ja klikkaamalla "Standard output". Myös CSV-muotoinen esitys tallentuu samaan kansioon. CSV-tiedoston pohjalta voi luoda visualisaation käyttämällä projektin sisältämää python-skriptiä sijainnissa `skriptit/perfplot.py`.
+
+![Suorituskykytestin visualisointi](perftest.png)
+
+Suorituskykytestien ajot noudattelevat tämän pohjalta silmämääräisesti O(N log N) aikavaativuutta.
 
 ### Hyväksyntätestaus
 

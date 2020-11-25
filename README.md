@@ -27,6 +27,7 @@ Lisää äänitiedostoja voi generoida ottamalla mallia esimerkiksi [tästä pyt
 - [Viikkoraportti 2](dokumentaatio/viikkoraportti-2.md)
 - [Viikkoraportti 3](dokumentaatio/viikkoraportti-3.md)
 - [Viikkoraportti 4](dokumentaatio/viikkoraportti-4.md)
+- [Viikkoraportti 5](dokumentaatio/viikkoraportti-5.md)
 
 ## Artefaktit Githubissa
 Versionhallinnan `main`-haarasta tehdään [automaattisesti ajo](https://github.com/Segrel/TaajuusTane/actions), jossa:
