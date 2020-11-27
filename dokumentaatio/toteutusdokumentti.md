@@ -4,6 +4,8 @@
 
 Intuitiivisella tasolla ohjelma lukee tallenteen ja suorittaa sille analyysin. Toteutuksessa on pääosassa Tallenne-luokka, joka suorittaa äänitiedoston lukemisen levyltä, sekä Analyysi-luokka, joka suorittaa luetulle signaalille analyysin.
 
+Analyysin ymmärtämisen kannalta on Fourier-muunnoksesta hyvä tietää sen luonne eräänlaisena matemaattisena koneena. Tällaista korkean tason intuitiota voi muodostaa esimerkiksi [3Blue1Brown: But what is the Fourier Transform? A visual introduction](https://www.youtube.com/watch?v=spUNpyF58BY) -videon avulla.
+
 ## Luokat
 
 ### App
@@ -12,18 +14,22 @@ App-luokka vastaa sovelluksen komentorivirajapinnan toteutuksesta.
 ### Kompleksi
 Toteutus käyttää globaalia Kompleksi-luokkaa ilmentämään kompleksilukuja ja suorittamaan näillä laskutoimituksia.
 
+### Fourier
+Fourier-luokka on eriytetty omakseen ja sisältää pelkästään Fourier-muunnoksessa tarvittavan logiikan. Fourier-muunnoksesta toteutuksesta tarkemmin osiossa Algoritmit.
+
 ### Tallenne
 Tallenne tarjoaa staattisen metodin audiotiedoston lukemiseksi Kompleksi-taulukoksi. Luvun yhteydessä validoidaan tallenteen oikea muoto.
 
 ### Analyysi
-Analyysi-luokalta voi pyytää perustaajuuden Kompleksi-muotoisella signaalisyötteellä. Koska Fourier-analyysimme suoriutuu vain syötteen pituuksista, jotka ovat kahden potensseja, voidaan analyysi-luokalta kysyä myös montako näytettä jätettiin analyysissa tämän takia käsittelemättä.
+Analyysi-luokalta voi pyytää perustaajuuden Kompleksi-muotoisella signaalisyötteellä. Koska Fourier-analyysimme suoriutuu vain syötteen pituuksista, jotka ovat kahden potensseja, voidaan analyysi-luokalta kysyä myös montako näytettä jätettiin analyysissa tämän takia käsittelemättä. Analyysi käyttää Fourier-luokkaa muuntaakseen signaalin taajuustasoon, minkä jälkeen se etsii magnitudiltaan suurimman alkion ja laskee tätä muunnos-siivua vastaavan taajuuden.
 
-### Fourier
-Fourier-luokka on eriytetty omakseen ja sisältää pelkästään Fourier-muunnoksessa tarvittavan logiikan.
+## Algoritmit
 
-## Aika- ja tilavaativuudet
+Algoritmien osalta kiinnostavaa on lähinnä Fourier-muunnos. Toteutus on nk. Cooley-Tukey radix-2 DIT FFT[1].
 
-Aika- ja tilavaativuuksien käsittelemisen kannalta mielenkiintoinen osa-alue on Fourier-muunnos. Toteutus on nk. Cooley-Tukey radix-2 DIT FFT[1]:
+### Aika- ja tilavaativuudet
+
+Olkoon `X` tehty muunnos ja `x` syötesignaali, molemmat kompleksilukutaulukoita. Nyt algoritmin pseudokoodi voidaan esittää esimerkiksi seuraavasti:
 ```
 X = ditfft2(x):
   N = length(x)
@@ -36,9 +42,9 @@ X = ditfft2(x):
       X[k] = X[k] + exp(-2*pi*k/N) * X[k+N/2]
       X[k+N/2] = X[k] - exp(-2*pi*k/N) * X[k+N/2]
 ```
-Tämän asymptoottinen aikavaativuus on O(N log N), sekä asymptoottinen tilavaativuus O(N log N).
+Tästä nähdään asymptoottisen aikavaativuuden olevan O(N log N), sekä asymptoottisen tilavaativuuden O(N log N).
 
-## Suorituskyky
+### Suorituskykytestien tulokset
 
 Suorituskykytestauksen toteutus kuvataan tarkemmin [testausdokumentissa](testausdokumentti.md). Suorituskykytestit ajettiin tietokoneella, jossa 3.5GHz Quad-Core Intel Core i5 suoritin, missä 256KB L2-välimuistiä, sekä 6MB ytimien välillä jaettua L3-välimuistia.
 
@@ -63,7 +69,7 @@ Tulokset noudattelevat O(N log N) aikavaativuutta. 2^20 ääninäytettä on noin
 
 Suuressa osassa todellisista tallenteista ei ole juuri oikeaa määrää (kahden potenssi) sampleja, jolloin analyysi jättää osan tallenteesta käsittelemättä. Tämän osalta voitaisiin esimerkiksi pilkkoa tallenne lyhyempiin pätkiin, analysoida ne ja koostaa näistä pienemmistä analyyseista johtopäätös.
 
-## Jatkokehittelyä
+## Jatkokehittelyideoita
 
 Mielenkiintoisia aihepiirejä olisivat:
 - laajemmin erilaisten äänitallenteiden tukeminen

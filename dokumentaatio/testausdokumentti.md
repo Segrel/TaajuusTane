@@ -27,4 +27,13 @@ Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/perftest/`.
 
 ### Hyväksyntätestaus
 
-TODO
+Automaattinen hyväksyntätesti varmistaa, että sovellus palauttaa oikean taajuuden kun annetaan syötteeksi 440Hz siniaallon sisältävä `app/src/test/resources/440hz.wav`. Tiedosto on generoitu `skriptit/genwav.py` python-skriptillä.
+
+Hyväksyntätestin voi suorittaa seuraavalla komennolla:
+```
+./gradlew acctest
+```
+Tätä vastaa manuaalinen suoritus:
+```
+java -cp app/build/libs/app.jar TaajuusTane.App app/src/test/resources/440hz.wav
+```

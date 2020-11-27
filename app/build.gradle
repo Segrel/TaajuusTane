@@ -44,6 +44,7 @@ checkstyle {
 test {
     useJUnit {
         excludeCategories 'TaajuusTane.SuorituskykyTesti'
+        excludeCategories 'TaajuusTane.HyvaksyntaTesti'
     }
     finalizedBy jacocoTestReport
     finalizedBy javadoc
@@ -54,5 +55,12 @@ task perftest(type: Test) {
     testLogging.showStandardStreams = true
     useJUnit {
         includeCategories 'TaajuusTane.SuorituskykyTesti'
+    }
+}
+
+task acctest(type: Test) {
+    outputs.upToDateWhen { false }
+    useJUnit {
+        includeCategories 'TaajuusTane.HyvaksyntaTesti'
     }
 }
