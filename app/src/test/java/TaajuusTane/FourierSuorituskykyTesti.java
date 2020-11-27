@@ -46,7 +46,7 @@ public class FourierSuorituskykyTesti {
       }
       tiedostoKirjoitin.flush();
       tiedostoKirjoitin.close();
-    } catch(Exception e) {
+    } catch (Exception e) {
       System.out.println("Tuloksien kirjoittaminen tiedostoon ei onnistunut: " + e.toString());
     }
   }
