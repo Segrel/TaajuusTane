@@ -56,7 +56,7 @@ public class Analyysi {
 
   /** Montako ääninäytettä jätettiin analysoimatta.
   *
-  * @return Sivuutettujen ääninäytteiden määrä
+  * @return Signaalin lopusta sivuutettujen ääninäytteiden määrä
   */
   public int sivuutettuja() {
     return sivuutettuja;
