@@ -41,5 +41,5 @@ Hyväksyntätestin voi suorittaa seuraavalla komennolla:
 ```
 Tätä vastaa manuaalinen suoritus:
 ```
-java -cp app/build/libs/app.jar TaajuusTane.App app/src/test/resources/440hz.wav
+java -jar app/build/libs/app.jar app/src/test/resources/440hz.wav
 ```

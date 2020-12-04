@@ -26,7 +26,7 @@ public class Tallenne {
     AudioInputStream audiovuo = AudioSystem.getAudioInputStream(tiedosto);
     AudioFormat metadata = audiovuo.getFormat();
     if (!metadata.getEncoding().equals(AudioFormat.Encoding.PCM_SIGNED)) {
-      throw new UnsupportedAudioFileException("Tallenteen tulee olla etumerkillisessä 16 bittisessä PCM-muodossa.");
+      throw new UnsupportedAudioFileException("Tallenteen tulee olla etumerkillisessä 16-bittisessä PCM-muodossa.");
     }
     if (metadata.isBigEndian()) {
       throw new UnsupportedAudioFileException("Tallenteen tulee olla little-endian tavujärjestyksessä.");

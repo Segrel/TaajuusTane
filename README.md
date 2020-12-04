@@ -13,7 +13,7 @@ Ohjelma lukee annetun Wav(RIFF)-muotoisen, yksikanavaisen signed 16bit PCM-muoto
 Esimerkiksi seuraavan komennon pitäisi antaa perustaajuudeksi 440Hz:
 
 ```
-java -cp app/build/libs/app.jar TaajuusTane.App app/src/test/resources/440hz.wav
+java -jar app/build/libs/app.jar app/src/test/resources/440hz.wav
 ```
 
 Lisää äänitiedostoja voi generoida ottamalla mallia esimerkiksi [tästä python skriptistä](https://github.com/Segrel/TaajuusTane/blob/main/skriptit/genwav.py) tai käyttämällä saatavilla olevia äänen muokkamiseen soveltuvia ohjelmia.
