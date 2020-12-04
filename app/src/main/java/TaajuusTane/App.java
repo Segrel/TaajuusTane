@@ -14,7 +14,7 @@ public class App {
     Kompleksi[] signaali = Tallenne.lue(args[0]);
     System.out.println("Luettiin audiotiedostosta " + Integer.toString(signaali.length) + " näytettä.");
     Analyysi analyysi = new Analyysi(signaali, 44100.0);
-    System.out.println("Perustaajuus on " + Integer.toString(analyysi.perustaajuus()) + "Hz.");
+    System.out.println("Perustaajuus on " + Integer.toString(analyysi.perustaajuus()) + " Hz.");
     if (analyysi.sivuutettuja() > 0) {
       System.out.println(Integer.toString(analyysi.sivuutettuja()) + " näytettä jätettiin analysoimatta.");
     }

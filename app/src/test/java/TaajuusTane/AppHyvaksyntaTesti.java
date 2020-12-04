@@ -32,7 +32,7 @@ public class AppHyvaksyntaTesti {
     String[] tuloste = tulostevuo.toString().split("\n");
     assertEquals(3, tuloste.length);
     assertEquals("Luettiin audiotiedostosta 33075 näytettä.", tuloste[0]);
-    assertEquals("Perustaajuus on 440Hz.", tuloste[1]);
+    assertEquals("Perustaajuus on 440 Hz.", tuloste[1]);
     assertEquals("307 näytettä jätettiin analysoimatta.", tuloste[2]);
   }
 }

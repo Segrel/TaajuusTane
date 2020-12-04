@@ -63,7 +63,7 @@ syötteen pituus: mediaanikesto (ms)
 2^20: 669.518513
 ```
 
-Tulokset noudattelevat O(N log N) aikavaativuutta. 2^20 ääninäytettä on noin 24 sekuntia.
+Tulokset noudattelevat O(N log N) aikavaativuutta. 2^20 ääninäytettä on noin 24 sekuntia kun näytteenottotaajuus on 44100 Hz.
 
 ## Puutteet
 

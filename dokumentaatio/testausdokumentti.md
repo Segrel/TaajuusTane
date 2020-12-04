@@ -13,7 +13,7 @@ Yksikkötestit voi suorittaa seuraavalla komennolla:
 ```
 Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/test/`, sekä testikattavuusraportin polkuun `app/build/reports/jacoco/test/html/`.
 
-### Tallenne
+#### Tallenne
 
 `Tallenne`-luokan testaus poikkeaa muista siten, että testeissä ei ohiteta luokan ulkopuolisia riippuvuuksia, vaan testi lukee tiedostoja oikeasta tiedostojärjestelmästä. Testaukseen käytetään `app/src/test/resources/` kansiosta löytyviä `kymmenykset` Wav-tiedostoja, jotka on generoitu `skriptit/genwav.py` python-skriptillä. Näissä tiedostoissa on kymmenen näytettä skaalan kymmenesosan välein, kaikki epänegatiivisia. Luettujen arvojen validointiin riittää hyvin epätarkempikin täsmäys, sillä arvojen väli on tuhansia yksiköitä etumerkillisellä 16-bittisellä skaalalla.
 
@@ -23,7 +23,7 @@ Tiedoston luvun keskellä tapahtuvan virheen käsittelyä ei ole testattu.
 
 ### Suorituskykytestaus
 
-Suorituskykytesteillä testataan `Fourier.muunnos` metodin nopeutta. Wav-tiedostot vievät paljon tilaa, joten testaamisessa käytetty signaali (440Hz siniaalto) generoidaan testien suorituksen yhteydessä. Koska käyttämämme algoritmi suoriutuu vain kahden potensseista, tehdään testaus kahden potenssien pituisilla syötteillä. Käytetään pituuksia 2^12, ..., 2^20, sillä näilläkin yksittäinen muunnos vie (testatulla laitteistolla) joistain millisekuinneista aina useisiin satoihin millisekunteihin.
+Suorituskykytesteillä testataan `Fourier.muunnos` metodin nopeutta. Wav-tiedostot vievät paljon tilaa, joten testaamisessa käytetty signaali (440 Hz siniaalto) generoidaan testien suorituksen yhteydessä. Koska käyttämämme algoritmi suoriutuu vain kahden potensseista, tehdään testaus kahden potenssien pituisilla syötteillä. Käytetään pituuksia 2^12, ..., 2^20, sillä näilläkin yksittäinen muunnos vie (testatulla laitteistolla) joistain millisekuinneista aina useisiin satoihin millisekunteihin.
 
 Suorituskykytestit voi suorittaa seuraavalla komennolla:
 ```
@@ -33,7 +33,7 @@ Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/perftest/`.
 
 ### Hyväksyntätestaus
 
-Automaattinen hyväksyntätesti varmistaa, että sovellus palauttaa oikean taajuuden kun annetaan syötteeksi 440Hz siniaallon sisältävä `app/src/test/resources/440hz.wav`. Tiedosto on generoitu `skriptit/genwav.py` python-skriptillä.
+Automaattinen hyväksyntätesti varmistaa, että sovellus palauttaa oikean taajuuden kun annetaan syötteeksi 440 Hz siniaallon sisältävä `app/src/test/resources/440hz.wav`. Tiedosto on generoitu `skriptit/genwav.py` python-skriptillä.
 
 Hyväksyntätestin voi suorittaa seuraavalla komennolla:
 ```

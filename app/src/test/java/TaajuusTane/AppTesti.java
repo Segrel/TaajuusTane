@@ -42,7 +42,7 @@ public class AppTesti {
       String[] tuloste = tulostevuo.toString().split("\n");
       assertEquals(2, tuloste.length);
       assertEquals("Luettiin audiotiedostosta 4 näytettä.", tuloste[0]);
-      assertEquals("Perustaajuus on 11025Hz.", tuloste[1]);
+      assertEquals("Perustaajuus on 11025 Hz.", tuloste[1]);
     }
   }
 
@@ -66,7 +66,7 @@ public class AppTesti {
       String[] tuloste = tulostevuo.toString().split("\n");
       assertEquals(3, tuloste.length);
       assertEquals("Luettiin audiotiedostosta 6 näytettä.", tuloste[0]);
-      assertEquals("Perustaajuus on 0Hz.", tuloste[1]);
+      assertEquals("Perustaajuus on 0 Hz.", tuloste[1]);
       assertEquals("2 näytettä jätettiin analysoimatta.", tuloste[2]);
     }
   }

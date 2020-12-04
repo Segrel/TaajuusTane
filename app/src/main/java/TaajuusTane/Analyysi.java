@@ -30,7 +30,7 @@ public class Analyysi {
     }
     this.signaali = signaali;
     if (naytteenottotaajuus < 1) {
-      throw new IllegalArgumentException("Näytteenottotaajuus ei voi olla alle 1Hz.");
+      throw new IllegalArgumentException("Näytteenottotaajuus ei voi olla alle 1 Hz.");
     }
     this.naytteenottotaajuus = naytteenottotaajuus;
   }
@@ -43,7 +43,7 @@ public class Analyysi {
     muunnos = Fourier.muunnos(this.signaali);
     double suurin = 0.0;
     int suurinIndeksi = 0;
-    // Meitä kiinnostaa vain ensimmäiset ~22kHz
+    // Meitä kiinnostaa vain ensimmäiset ~22 kHz
     for (int i = 0; i < (muunnos.length / 2); i += 1) {
       double m = Kompleksi.moduli(muunnos[i]);
       if (m > suurin) {
