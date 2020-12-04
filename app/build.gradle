@@ -32,6 +32,14 @@ application {
     mainClass = 'TaajuusTane.App'
 }
 
+jar {
+  manifest {
+    attributes(
+      'Main-Class': 'TaajuusTane.App'
+    )
+  }
+}
+
 jacoco {
     toolVersion = "0.8.6"
 }
