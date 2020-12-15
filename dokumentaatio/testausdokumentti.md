@@ -33,7 +33,7 @@ Komennon suoritus luo testiraportin polkuun `app/build/reports/tests/perftest/`.
 
 ### Hyväksyntätestaus
 
-Automaattinen hyväksyntätesti varmistaa, että sovellus palauttaa oikean taajuuden kun annetaan syötteeksi 440 Hz siniaallon sisältävä `app/src/test/resources/440hz.wav`. Tiedosto on generoitu `skriptit/genwav.py` python-skriptillä.
+Automaattinen hyväksyntätesti varmistaa, että sovellus palauttaa oikean taajuuden kun annetaan syötteeksi 440 Hz siniaallon sisältävä `app/src/test/resources/440hz.wav`, sekä kun annetaan monta siniaaltoa (200 Hz, 400 Hz ja 800 Hz) sisältävä tiedosto `app/src/test/resources/200hz-400hz-800hz.wav`, jonka perustaajuudeksi tiedetään 200 Hz. Tiedostot on generoitu `skriptit/genwav.py` python-skriptillä.
 
 Hyväksyntätestin voi suorittaa seuraavalla komennolla:
 ```
