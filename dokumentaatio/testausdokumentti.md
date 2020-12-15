@@ -39,7 +39,8 @@ Hyväksyntätestin voi suorittaa seuraavalla komennolla:
 ```
 ./gradlew acctest
 ```
-Tätä vastaa manuaalinen suoritus:
+Tätä vastaa manuaaliset suoritukset:
 ```
 java -jar app/build/libs/app.jar app/src/test/resources/440hz.wav
+java -jar app/build/libs/app.jar app/src/test/resources/200hz-400hz-800hz.wav
 ```
